@@ -137,5 +137,13 @@
 		#4 % Entry description text
 	}\\\\}
 
+\newcommand{\datelessentry}[3]{%
+    \hspace*{0.15\textwidth}% Ensures consistent left margin
+    \parbox[t]{0.85\textwidth}{% Keeps text aligned with other entries
+        \textbf{#1}% Entry heading text
+        \hfill% Horizontal whitespace
+        {\footnotesize \textbf{\textcolor{black}{#2}}}\\% Right-aligned qualifier text
+        #3% Entry description text
+    }\\\\}
 % Command to output a separator slash between lists, e.g. '  /  '
 \newcommand{\slashsep}{\hspace{3mm}/\hspace{3mm}}
