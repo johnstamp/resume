@@ -28,7 +28,7 @@
 \ProcessOptions\relax % Process given options
 
 \LoadClass{extarticle} % Load the base class
-
+\usepackage{needspace}
 %----------------------------------------------------------------------------------------
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
@@ -104,14 +104,19 @@
 \def\Vhrulefill{\leavevmode\leaders\hrule height 0.7ex depth \dimexpr0.4pt-0.7ex\hfill\kern0pt}
 
 % Command to output section title headings
-\newcommand{\cvsect}[1]{% The only parameter is the section text
-	\vspace{\baselineskip} % Whitespace before the section title
-	\textcolor{black}{ \MakeUppercase{\textbf{#1}}} \hspace{4pt} \Vhrulefill \\% Section title
+\newcommand{\cvsect}[1]{%
+	\needspace{6\baselineskip} % Reserve vertical space to avoid splitting section
+	\vspace{0.8\baselineskip}
+	\textcolor{black}{ \MakeUppercase{\textbf{#1}}} \hspace{4pt} \Vhrulefill \\
+	\vspace{0.6\baselineskip}
 }
-
+ 
 %----------------------------------------------------------------------------------------
 %	ENTRY LIST
 %----------------------------------------------------------------------------------------
+\raggedright            % Default to ragged right (left-aligned)
+\usepackage[none]{hyphenat} % Disable hyphenation globally
+\sloppy                 % Make LaTeX less strict with spacing
 
 \usepackage{longtable} % Required for tables that span multiple pages
 \setlength{\LTpre}{0pt} % Remove default whitespace before longtable
@@ -124,26 +129,28 @@
 	\begin{longtable}[H]{l l}
 }{
 	\end{longtable}
-}
+} 
 
-\newcommand{\entry}[4]{% First argument for the leftmost date(s) text, second is for the bold entry heading, third is for the bold right-aligned entry qualifier and the fourth is for the entry description
-	\parbox[t]{0.15\textwidth}{% 17.5% of the text width of the page
-	   \small #1 % Leftmost entry date(s) text
+\newcommand{\entry}[4]{%
+	\parbox[t]{0.15\textwidth}{%
+	   \small #1
 	}%
-	&\parbox[t]{0.85\textwidth}{% 82.5% of the text width of the page
-		\textbf{#2}% Entry heading text
-		\hfill% Horizontal whitespace
-		{\footnotesize \textbf{\textcolor{black}{#3}}}\\% Right-aligned entry qualifier text
-		#4 % Entry description text
+	&\parbox[t]{0.85\textwidth}{%
+		\textbf{#2}
+		\hfill
+		{\footnotesize \textbf{\textcolor{black}{#3}}}\\
+		#4
 	}\\\\}
-
-\newcommand{\datelessentry}[3]{%
+ 
+	\newcommand{\datelessentry}[3]{%
+    \vspace{0.5\baselineskip} % Adds space before each entry
     \hspace*{0.15\textwidth}% Ensures consistent left margin
     \parbox[t]{0.85\textwidth}{% Keeps text aligned with other entries
         \textbf{#1}% Entry heading text
         \hfill% Horizontal whitespace
         {\footnotesize \textbf{\textcolor{black}{#2}}}\\% Right-aligned qualifier text
         #3% Entry description text
-    }\\\\}
+    }\par\vspace{0.5\baselineskip} % Adds space after each entry for separation
+}
 % Command to output a separator slash between lists, e.g. '  /  '
 \newcommand{\slashsep}{\hspace{3mm}/\hspace{3mm}}
