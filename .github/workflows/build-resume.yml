@@ -1,0 +1,42 @@
+name: Build LaTeX Resume
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  release:
+    types: [ created ]
+
+env:
+  RESUME_FILENAME: john-stamp-resume
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Compile LaTeX document
+      uses: xu-cheng/latex-action@v3
+      with:
+        root_file: ${{ env.RESUME_FILENAME }}.tex
+        latexmk_use_xelatex: false
+        args: -pdf -interaction=nonstopmode
+
+    - name: Upload PDF artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: resume-pdf
+        path: ${{ env.RESUME_FILENAME }}.pdf
+        retention-days: 90
+
+    - name: Upload to release (if tagged)
+      if: github.event_name == 'release'
+      uses: softprops/action-gh-release@v1
+      with:
+        files: ${{ env.RESUME_FILENAME }}.pdf
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
