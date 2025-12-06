@@ -1,4 +1,12 @@
+*.synctex.gz
+*.fdb_latexmk
+*.pdf
 .idea/
 *.out
 *.log
 *.iml
+
+
+# Added by cargo
+
+/target
