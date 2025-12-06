@@ -5,7 +5,8 @@
 *.out
 *.log
 *.iml
-
+*.aux
+*.fls
 
 # Added by cargo
 
