@@ -7,7 +7,8 @@
 % http://www.LaTeXTemplates.com
 %
 % Authors:
-% Omar Roldan
+% John Stamp
+% Based on a template by Roldan
 % Based on a template by  Jan Vorisek (jan@vorisek.me)
 % Based on a template by Jan Küster (info@jankuester.com)
 % Modified for LaTeX Templates by Vel (vel@LaTeXTemplates.com)
