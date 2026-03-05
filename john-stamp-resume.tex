@@ -35,7 +35,7 @@
     \begin{minipage}[t]{0.5\textwidth}
         \vspace{-\baselineskip} % Required for vertically aligning minipages
 
-        { \fontsize{16}{20} \textcolor{black}{\textbf{\MakeUppercase{John Stamp}}}} % First name
+        { \fontsize{16}{20} \textcolor{black}{\textbf{John Stamp}}} % First name
 
         \vspace{6pt}
 
@@ -105,6 +105,11 @@
     \cvsect{Experience}
     \begin{entrylist}
         \entry
+        {01/2025 -- Present}
+        {Freelance \& Career Break}
+        {Self-Employed}
+        {Light technical consulting and personal projects following planned redundancy; extended travel before returning focus to full-time roles. (See Projects)}
+        \entry
         {10/2021 -- 12/2024}
         {
             Tech Team Lead
@@ -112,27 +117,30 @@
         {Deem Ltd}
         {\vspace{-10pt}
         \begin{flushleft}
-            Led the migration of legacy systems to a scalable, cloud-based architecture, significantly improving system performance and
-            maintainability. Was technical lead for the GraphQL and React codebases.
-
+            Deem is a corporate travel management platform. As Tech Lead, I owned technical direction across multiple projects, leading teams through architecture decisions, delivery, and ongoing maintenance.
         \end{flushleft}
+
+        \textbf{Uber Integration} \hfill \textit{1.5 years | Team: 5 engineers}\\
+        End-to-end ride booking solution integrating Uber's APIs into the Deem corporate travel platform.
         \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt, leftmargin=15pt]
-                \item Stabilized and launched a React/GraphQL frontend application, ensuring seamless
-                deployment with zero rollbacks over 12 months
-                \item Architected and delivered an integration with Uber’s APIs, enabling
-                seamless ride bookings within the deem app. Drove cross-team collaboration across three timezones, US, Dublin and Thailand. 
-                Built using Go microservices, React, and PostgreSQL.
-                \item Increased React code coverage from 25% to 55%, fostering a quality-first mindset within
-                the team
-                \item Designed and implemented robust Go and PostgreSQL microservices, enhancing scalability,
-                performance, and security
-                \item Advocated for mob programming practices, improving collaboration, knowledge sharing,
-                and code quality
-                \item Directed architectural and product decisions to align technical strategies with business
-                goals
-            \end{itemize}
-     
-        
+                \item Architected and delivered an integration with Uber's APIs, enabling seamless ride bookings within the Deem app
+                \item Drove cross-team collaboration across three timezones (US, Dublin, Thailand)
+                \item Designed Go microservices with PostgreSQL for reliable data persistence and scalability
+        \end{itemize}
+        \vspace{4pt}
+        Technologies: \textit{Java, Spring, Go, React, PostgreSQL, REST APIs, GCP, Kubernetes}
+        \vspace{6pt}
+
+        \textbf{React/GraphQL Frontend Platform} \hfill \textit{1.5 years | Team: 5 engineers}\\
+        Modern single-page application serving as the primary interface for corporate travel bookings and expense management.
+        \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt, leftmargin=15pt]
+                \item Stabilized and launched a React/GraphQL frontend application with zero rollbacks over 12 months
+                \item Increased code coverage from 25\% to 55\%, fostering a quality-first mindset
+                \item Advocated for mob programming practices, improving collaboration and code quality
+                \item Directed architectural and product decisions to align technical strategies with business goals
+        \end{itemize}
+        \vspace{4pt}
+        Technologies: \textit{React, TypeScript, GraphQL, Jest}
         }
         \entry
         {04/2019 -- 10/2021}
@@ -196,6 +204,21 @@
 \vspace{-10 pt}
 \cvsect{Personal Projects}
 \begin{entrylist}
+    \entry
+    {2025}
+    {Client Document Generation System}
+    {}
+    {\vspace{-10pt}
+    \begin{flushleft}
+        Rust CLI tool for generating professional PDF documents from LaTeX templates, built to support freelance client deliverables.
+    \end{flushleft}
+    \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt, leftmargin=15pt]
+        \item Built a Rust CLI that compiles parameterised LaTeX templates into polished PDF documents
+        \item Implemented properties file-based data injection, decoupling document structure from content for reusable, client-specific templates
+        \item Enabled rapid generation of tailored client documents by swapping input files without modifying template source
+        \item Applied in practice to produce consistent, version-controlled deliverables across freelance engagements
+    \end{itemize}
+    }
     \entry
     {2025}
     {Automated Resume Pipeline}

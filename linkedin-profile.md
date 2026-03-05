@@ -12,6 +12,22 @@ _Character count: 502/2,600 - You have room to expand this with more personality
 
 ## Experience
 
+### Freelance Software Consultant
+**Self-Employed**
+Jan 2025 - Present | Dublin, Ireland
+
+Following redundancy at Deem, I took an intentional career break — including extended international travel — before returning focus to full-time opportunities. During this period I kept technically active through light consulting and personal projects.
+
+• Provided technical consulting and advisory services to independent clients across software architecture and delivery
+
+• Built a Rust/LaTeX document generation system for producing client deliverables from reusable templates and data files
+
+• Developed personal infrastructure tooling including an Ansible-based Mac provisioning system and an automated LaTeX/CI resume pipeline
+
+> **Note:** LinkedIn also supports a dedicated **Career Break** entry (under Add Experience → Career Break). Adding one alongside this role with reason "Travel" and dates Jan 2025 – Present is recommended for full transparency and profile completeness.
+
+---
+
 ### Tech Team Lead
 **Deem Ltd**
 Oct 2021 - Dec 2024 | Dublin, Ireland
@@ -69,6 +85,20 @@ Delivered end-to-end development for critical web applications supporting the tr
 ---
 
 ## Projects
+
+### Client Document Generation System
+**2025**
+_(Private repository)_
+
+Rust CLI tool for generating professional PDF documents from LaTeX templates, built to support freelance client deliverables.
+
+• Built a Rust CLI that compiles parameterised LaTeX templates into polished PDF documents
+
+• Implemented properties file-based data injection, decoupling document structure from content for reusable, client-specific templates
+
+• Applied in practice to produce consistent, version-controlled deliverables across freelance engagements
+
+---
 
 ### Automated Resume Pipeline
 **2025**
