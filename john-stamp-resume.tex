@@ -27,6 +27,14 @@
 %----------------------------------------------------------------------------------------
 \usepackage{lipsum}
 
+%----------------------------------------------------------------------------------------
+%	CONDITIONAL COMPILATION FOR RESUME VARIANTS
+%----------------------------------------------------------------------------------------
+% Toggle between Engineering Manager and Tech Lead versions
+% Set to true for EM version, false for Tech Lead version
+\newif\ifmanager
+\managerfalse  % Default to Tech Lead version
+
 \begin{document} 
 % ----------------------------------------------------------------------------------------
 %	TITLE AND CONTACT INFORMATION
@@ -39,7 +47,11 @@
 
         \vspace{6pt}
 
-        {\Large Engineering Manager $\sim$ Tech Lead} % Career or current job title
+        \ifmanager
+            {\Large Engineering Manager $\sim$ Technical Leader} % EM version
+        \else
+            {\Large Tech Lead $\sim$ Engineering Manager} % Tech Lead version
+        \fi
     \end{minipage}
     \hfill
     \begin{minipage}[t]{0.2\textwidth} % 20% of the page width for the first row of icons
@@ -69,10 +81,15 @@
         \cvsect{Summary}
         \vspace{-6pt}
         \begin{flushleft}
-            \textbf{Experienced Technical Lead} with a proven track record in designing and delivering scalable, 
-            cloud-based systems across telecommunications, travel, and education sectors. 
-            Skilled at leading cross-functional teams, modernizing legacy platforms, and executing high-impact projects with a balance of technical excellence and strategic insight. 
-            Recognized for mentoring engineers, establishing best practices, and driving measurable improvements in performance, scalability, and overall quality.
+            \ifmanager
+                \textbf{Engineering Manager and Technical Leader} with proven track record building high-performing teams and delivering scalable systems across travel, education, and telecommunications sectors.
+                Experienced managing direct reports, driving cross-functional collaboration, and balancing technical direction with people development.
+                Skilled at mentoring engineers, establishing best practices, modernizing legacy platforms, and executing strategic initiatives that align technical decisions with business outcomes.
+            \else
+                \textbf{Experienced Tech Lead} with proven track record designing and delivering scalable, cloud-based systems across telecommunications, travel, and education sectors.
+                Skilled at leading cross-functional teams, modernizing legacy platforms, and executing high-impact projects with a balance of technical excellence and strategic insight.
+                Recognized for mentoring engineers, establishing best practices, and driving measurable improvements in performance, scalability, and overall quality.
+            \fi
         \end{flushleft}
     \end{minipage}
     \hfill % Whitespace between
@@ -94,7 +111,7 @@
         \end{minipage}
         \hfill
         \begin{minipage}[t]{0.73\textwidth}
-            GCP, Docker, Kubernetes, PostgreSQL, Microservices, GraphQL.
+            GCP, Docker, Kubernetes, PostgreSQL, Kafka, Microservices, GraphQL.
         \end{minipage}
 
     \end{minipage}
@@ -112,20 +129,34 @@
         \entry
         {10/2021 -- 12/2024}
         {
-            Tech Team Lead
+            \ifmanager
+                Tech Team Lead / Engineering Manager
+            \else
+                Tech Team Lead
+            \fi
         }
         {Deem Ltd}
         {\vspace{-10pt}
         \begin{flushleft}
-            Deem is a corporate travel management platform. As Tech Lead, I owned technical direction across multiple projects, leading teams through architecture decisions, delivery, and ongoing maintenance.
+            \ifmanager
+                Deem is a corporate travel management platform. Led technical teams and provided engineering management across multiple high-impact projects, owning delivery, architecture decisions, team development, and stakeholder coordination.
+            \else
+                Deem is a corporate travel management platform. As Tech Lead, I owned technical direction across multiple projects, leading teams through architecture decisions, delivery, and ongoing maintenance.
+            \fi
         \end{flushleft}
 
         \textbf{Uber Integration} \hfill \textit{1.5 years | Team: 5 engineers}\\
         End-to-end ride booking solution integrating Uber's APIs into the Deem corporate travel platform.
         \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt, leftmargin=15pt]
-                \item Architected and delivered an integration with Uber's APIs, enabling seamless ride bookings within the Deem app
-                \item Drove cross-team collaboration across three timezones (US, Dublin, Thailand)
-                \item Designed Go microservices with PostgreSQL for reliable data persistence and scalability
+                \ifmanager
+                    \item Led team of 5 engineers to deliver Uber API integration, providing technical direction and removing blockers to enable seamless ride bookings
+                    \item Managed cross-functional collaboration across three timezones (US, Dublin, Thailand), coordinating deliverables and stakeholder expectations
+                    \item Directed architectural decisions for Go microservices with PostgreSQL, ensuring reliable data persistence and scalability
+                \else
+                    \item Architected and delivered an integration with Uber's APIs, enabling seamless ride bookings within the Deem app
+                    \item Drove cross-team collaboration across three timezones (US, Dublin, Thailand)
+                    \item Designed Go microservices with PostgreSQL for reliable data persistence and scalability
+                \fi
         \end{itemize}
         \vspace{4pt}
         Technologies: \textit{Java, Spring, Go, React, PostgreSQL, REST APIs, GCP, Kubernetes}
@@ -134,10 +165,17 @@
         \textbf{React/GraphQL Frontend Platform} \hfill \textit{1.5 years | Team: 5 engineers}\\
         Modern single-page application serving as the primary interface for corporate travel bookings and expense management.
         \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt, leftmargin=15pt]
-                \item Stabilized and launched a React/GraphQL frontend application with zero rollbacks over 12 months
-                \item Increased code coverage from 25\% to 55\%, fostering a quality-first mindset
-                \item Advocated for mob programming practices, improving collaboration and code quality
-                \item Directed architectural and product decisions to align technical strategies with business goals
+                \ifmanager
+                    \item Led team to stabilize and launch React/GraphQL frontend with zero rollbacks over 12 months through disciplined release management
+                    \item Drove code coverage improvement from 25\% to 55\%, establishing quality standards and fostering a quality-first culture
+                    \item Championed mob programming practices to improve team collaboration, knowledge sharing, and collective code ownership
+                    \item Aligned architectural and product decisions with business goals, serving as primary technical liaison to stakeholders
+                \else
+                    \item Stabilized and launched a React/GraphQL frontend application with zero rollbacks over 12 months
+                    \item Increased code coverage from 25\% to 55\%, fostering a quality-first mindset
+                    \item Advocated for mob programming practices, improving collaboration and code quality
+                    \item Directed architectural and product decisions to align technical strategies with business goals
+                \fi
         \end{itemize}
         \vspace{4pt}
         Technologies: \textit{React, TypeScript, GraphQL, Jest}
@@ -145,27 +183,35 @@
         \entry
         {04/2019 -- 10/2021}
         {
-            Principal Software Engineer/ Engineering Manager
+            \ifmanager
+                Engineering Manager
+            \else
+                Principal Software Engineer / Engineering Manager
+            \fi
         }
         {Visma Ltd}
         {\vspace{-10pt}
         \begin{flushleft}
-            Led the technical development of Visma's InSchool platform, a cutting-edge educational solution
-            serving students and administrators across Norway.
+            \ifmanager
+                Managed engineering teams and led technical development of Visma's InSchool platform, a cutting-edge educational solution serving students and administrators across Norway. Balanced people management with hands-on technical leadership.
+            \else
+                Led the technical development of Visma's InSchool platform, a cutting-edge educational solution serving students and administrators across Norway.
+            \fi
         \end{flushleft}
         \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt, leftmargin=15pt]
-                
-                \item Delivered a high-visibility data integration with the Norwegian government education
-                department, onboarding every secondary school student nationwide into the system on
-                time for the academic year
-                \item Designed scalable backend systems with Java, Spring, and Scala, enhancing platform
-                performance and reliability 
-                \item Introduced development best practices, resulting in
-                measurable improvements in code quality, maintainability, and team efficiency
-                \item Mentored teams across multiple roles, fostering a culture of growth through workshops,
-                code reviews, and skill-sharing sessions
-                \item Acted as the main liaison between development teams and stakeholders, ensuring clear
-                communication and timely delivery of priorities
+                \ifmanager
+                    \item Managed direct reports and led team delivery of high-visibility data integration with Norwegian government education department, onboarding every secondary school student nationwide on time for the academic year
+                    \item Built and mentored high-performing teams across multiple roles, fostering culture of growth through workshops, 1:1s, code reviews, and skill-sharing sessions
+                    \item Established development best practices and engineering standards, resulting in measurable improvements in code quality, maintainability, and team efficiency
+                    \item Served as main liaison between development teams and stakeholders, ensuring clear communication, expectation management, and timely delivery of priorities
+                    \item Designed scalable backend systems with Java, Spring, and Scala, maintaining hands-on technical contribution alongside management responsibilities
+                \else
+                    \item Delivered a high-visibility data integration with the Norwegian government education department, onboarding every secondary school student nationwide into the system on time for the academic year
+                    \item Designed scalable backend systems with Java, Spring, and Scala, enhancing platform performance and reliability
+                    \item Introduced development best practices, resulting in measurable improvements in code quality, maintainability, and team efficiency
+                    \item Mentored teams across multiple roles, fostering a culture of growth through workshops, code reviews, and skill-sharing sessions
+                    \item Acted as the main liaison between development teams and stakeholders, ensuring clear communication and timely delivery of priorities
+                \fi
         \end{itemize}
 
         }
@@ -204,6 +250,22 @@
 \vspace{-10 pt}
 \cvsect{Personal Projects}
 \begin{entrylist}
+    \entry
+    {2025}
+    {Event-Driven E-Commerce Microservices}
+    {\icon{Github}{11}{\href{https://github.com/johnstamp/payment-app}{github.com/johnstamp/payment-app}}}
+    {\vspace{-10pt}
+    \begin{flushleft}
+        Distributed order processing system built with Spring Boot and Apache Kafka to explore event-driven architecture and distributed systems patterns.
+    \end{flushleft}
+    \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt, leftmargin=15pt]
+        \item Implemented Saga choreography pattern across three independent microservices (Order, Payment, Fulfillment) communicating via Kafka events with no central orchestrator
+        \item Built compensating transaction logic to handle fulfillment failures post-payment, triggering automatic refund events and restoring consistent state
+        \item Enforced idempotency via unique database constraints on orderId to prevent duplicate payments under retry scenarios
+        \item Applied hexagonal architecture with clean separation of domain, service, Kafka adapters, and repository layers across all services
+    \end{itemize}
+    Technologies: \textit{Java 21, Spring Boot, Apache Kafka, PostgreSQL, Docker Compose}
+    }
     \entry
     {2025}
     {Client Document Generation System}
@@ -254,6 +316,15 @@
 
     }
 \end{entrylist}
+
+%----------------------------------------------------------------------------------------
+%	TRAINING
+%----------------------------------------------------------------------------------------
+\vspace{-10 pt}
+\cvsect{Training}
+
+\datelessentry{LLM Engineering: Master AI and Large Language Models}{Udemy}{}
+\datelessentry{Rust: The Complete Developer's Guide}{Udemy}{}
 
 %----------------------------------------------------------------------------------------
 %	EDUCATION

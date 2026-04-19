@@ -14,29 +14,47 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        variant:
+          - name: techlead
+            flag: '\managerfalse'
+            suffix: techlead
+          - name: manager
+            flag: '\managertrue'
+            suffix: manager
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Compile LaTeX document
+    - name: Prepare variant-specific build
+      run: |
+        # Create a wrapper file that sets the appropriate flag
+        cat > build-wrapper.tex <<EOF
+        ${{ matrix.variant.flag }}
+        \input{${{ env.RESUME_FILENAME }}.tex}
+        EOF
+        cat build-wrapper.tex
+
+    - name: Compile LaTeX document (${{ matrix.variant.name }})
       uses: xu-cheng/latex-action@v3
       with:
-        root_file: ${{ env.RESUME_FILENAME }}.tex
+        root_file: build-wrapper.tex
         latexmk_use_xelatex: false
-        args: -pdf -interaction=nonstopmode
+        args: -pdf -interaction=nonstopmode -jobname=${{ env.RESUME_FILENAME }}-${{ matrix.variant.suffix }}
 
     - name: Upload PDF artifact
       uses: actions/upload-artifact@v4
       with:
-        name: resume-pdf
-        path: ${{ env.RESUME_FILENAME }}.pdf
+        name: resume-pdf-${{ matrix.variant.suffix }}
+        path: ${{ env.RESUME_FILENAME }}-${{ matrix.variant.suffix }}.pdf
         retention-days: 90
 
     - name: Upload to release (if tagged)
       if: github.event_name == 'release'
       uses: softprops/action-gh-release@v1
       with:
-        files: ${{ env.RESUME_FILENAME }}.pdf
+        files: ${{ env.RESUME_FILENAME }}-${{ matrix.variant.suffix }}.pdf
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

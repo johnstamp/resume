@@ -1,3 +1,4 @@
+clients/
 .DS_Store
 *.synctex.gz
 *.fdb_latexmk
@@ -8,6 +9,7 @@
 *.iml
 *.aux
 *.fls
+build-wrapper-*.tex
 
 # Added by cargo
 
